@@ -1,0 +1,20 @@
+mixin li(fileName, menuName)
+	if self.location === fileName
+		li.nav-item.active.px-lg-4
+			a.nav-link.text-uppercase.text-expanded(href=fileName+'.html')= menuName 
+				span.sr-only (current)
+	else
+		li.nav-item.px-lg-4
+			a.nav-link.text-uppercase.text-expanded(href=fileName+'.html')= menuName
+
+nav#mainNav.navbar.navbar-expand-lg.navbar-dark.py-lg-4
+	.container
+		a.navbar-brand.text-uppercase.text-expanded.font-weight-bold.d-lg-none(href='#') Cafe Supreme
+		button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarResponsive.collapse.navbar-collapse
+			ul.navbar-nav.mx-auto
+				+li('index', 'home')
+				+li('products', 'products')
+				+li('store', 'store')
+				+li('about', 'about')
